@@ -1,0 +1,35 @@
+server:
+  port: 8999
+
+eureka:
+  instance:
+    hostname: localhost
+
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+        - id: contact-service
+          uri: lb://contact-service
+          predicates:
+            - Path=/contacts/**
+
+#server.port:8999
+#eureka.instance.hostname:localhost
+#
+#spring.application.name:api-gateway
+#spring.cloud.gateway.routes-id:user-service
+#spring.cloud.gateway.routes.url:lb://user-service
+#spring.cloud.gateway.routes.predicates-Path:=/users/**
+#
+#spring.cloud.gateway.routes-id:contact-service
+#spring.cloud.gateway.routes.url:lb://contact-service
+#spring.cloud.gateway.routes.predicates-Path=/contacts/**
+#

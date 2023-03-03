@@ -1,0 +1,8 @@
+userService 
+	port: 9001
+contactService 
+	port: 9001
+contactService 
+	port: 8761
+apigateway
+	port:8999
